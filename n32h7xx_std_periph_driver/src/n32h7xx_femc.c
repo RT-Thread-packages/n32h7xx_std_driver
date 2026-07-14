@@ -909,13 +909,13 @@ void FEMC_ClrECCBlockSTS(uint32_t ECC_Block_Index, uint32_t FEMC_Block_Flag_Inde
     if (ECC_Block_Index != FEMC_ECC_PAGE_BLOCK_EXTRA)
     {
         temp = FEMC->FEMC_ECCBLK[ECC_Block_Index];
-        temp &= !((uint32_t)((FEMC_Block_Flag_Index) << 27));
+        temp &= ~((uint32_t)((FEMC_Block_Flag_Index) << 27U));
         FEMC->FEMC_ECCBLK[ECC_Block_Index] = temp;
     }
     else if (ECC_Block_Index == FEMC_ECC_PAGE_BLOCK_EXTRA)
     {
         temp = FEMC->FEMC_ECCEBLK;
-        temp &= !((uint32_t)((FEMC_Block_Flag_Index) << 27));
+        temp &= ~((uint32_t)((FEMC_Block_Flag_Index) << 27U));
         FEMC->FEMC_ECCEBLK = temp;
     }
 }

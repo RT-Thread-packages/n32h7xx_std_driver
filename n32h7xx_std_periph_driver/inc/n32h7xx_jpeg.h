@@ -83,13 +83,13 @@ typedef enum
 #define    SGDMA_DESCF_LINKENABLE     JPEGDMA_DESCF_LINKE             /* Link Enable */
 
 #define    SGDMA_DESCF_STARTDISABLE   ((uint32_t)0x00000000U)         /* Non Start of Frame */
-#define    SGDMA_DESCF_STARTENABLE    JPEGDMA_DESCF_LINKE             /* Start of Frame */
+#define    SGDMA_DESCF_STARTENABLE    JPEGDMA_DESCF_START             /* Start of Frame */
 
 #define    SGDMA_DESCF_ENDDISABLE     ((uint32_t)0x00000000U)         /* Non End of Frame */
-#define    SGDMA_DESCF_ENDENABLE      JPEGDMA_DESCF_LINKE             /* End of Frame */
+#define    SGDMA_DESCF_ENDENABLE      JPEGDMA_DESCF_END               /* End of Frame */
 
 #define    SGDMA_DESCF_DESCCONDISABLE ((uint32_t)0x00000000U)         /* The descriptor is not consumed */
-#define    SGDMA_DESCF_DESCCONENABLE  JPEGDMA_DESCF_LINKE             /* Descriptor Consumed */
+#define    SGDMA_DESCF_DESCCONENABLE  JPEGDMA_DESCF_DESCCON           /* Descriptor Consumed */
 
 /** Scatter-Gather Descriptor **/
 typedef struct

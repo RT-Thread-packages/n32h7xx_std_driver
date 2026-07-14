@@ -753,9 +753,9 @@ void LCDC_LayerColorKeyingConfig(LCDC_Layer_Module* LCDC_Layerx, LCDC_ColorKeyin
 
         /* Sets the color keying values */
         tmpckctrl = LCDC_Layerx ->CKCTRL;
-        tmpckctrl &= (LCDC_CKCTRL_CKR | LCDC_CKCTRL_CKG | LCDC_CKCTRL_CKB);
+        tmpckctrl &= ~(LCDC_CKCTRL_CKR | LCDC_CKCTRL_CKG | LCDC_CKCTRL_CKB);
         tmpckctrl |= ((LCDC_ColorKeying_InitStruct->LCDC_ColorKeyRed << 16) | (LCDC_ColorKeying_InitStruct->LCDC_ColorKeyGreen << 8) | (LCDC_ColorKeying_InitStruct->LCDC_ColorKeyBlue));
-        LCDC_Layerx->LCTRL = (uint32_t)tmpckctrl;
+        LCDC_Layerx->CKCTRL = (uint32_t)tmpckctrl;
     }
     else
     {

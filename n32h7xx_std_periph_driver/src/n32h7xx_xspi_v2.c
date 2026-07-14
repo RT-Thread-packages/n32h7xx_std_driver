@@ -901,9 +901,6 @@ void XSPI_InitXIP(XSPI_Module *xSPIx, XSPI_XIPInitType* XSPI_XIPInitStruct)
 
         /* Write back XIP_WRITE_CTRL */
         xSPIx->XIP_WRITE_CTRL = tmpregister;
-
-        xSPIx->XIP_WRITE_CTRL = 0x030B;
-
     }
 }
 

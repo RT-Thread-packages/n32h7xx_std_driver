@@ -191,11 +191,11 @@ void PWR_EnableBKPLDO(FunctionalState Cmd)
 {
     if (Cmd == ENABLE)
     {
-        PWR->SYSCTRL1 |= ~PWR_BKPLDOEN;
+        PWR->SYSCTRL1 |= PWR_BKPLDOEN;
     }
     else
     {
-        PWR->SYSCTRL1 &= PWR_BKPLDOEN;
+        PWR->SYSCTRL1 &= ~PWR_BKPLDOEN;
     }
 }
 
@@ -223,7 +223,7 @@ void PWR_PVDLevelConfig(uint32_t level)
 
     temp_value = *(__IO uint32_t *)PVD_ContrlBaseAddress;
     /* Clear MSB and PLS[2:0] bits bit */
-    temp_value &= PWR_PVD_LEVEL_MASK;
+    temp_value &= ~PWR_PVD_LEVEL_MASK;
     /* Set PLS[3:0] bits according to level value */
     temp_value |= level;
     /* Store the new value */
@@ -253,7 +253,7 @@ void PWR_AVDLevelConfig(uint32_t level)
 
     temp_value = *(__IO uint32_t *)AVD_ContrlBaseAddress;
     /* Clear ALS[3:0] bits bit */
-    temp_value &= PWR_AVD_LEVEL_MASK;
+    temp_value &= ~PWR_AVD_LEVEL_MASK;
     /* Set ALS[3:0] bits according to level value */
     temp_value |= level;
     /* Store the new value */

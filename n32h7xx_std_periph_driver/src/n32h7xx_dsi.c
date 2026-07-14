@@ -1255,7 +1255,7 @@ DSI_StateTypeDef DSI_APBPKT_Read_BTA(DSI_HandleTypeDef *hdsi, uint32_t ChannelNb
         status = DSI_ShortWrite(hdsi, &PacketCtrl);
 
         /* step4: dsi rx */
-        if (status != DSI_OK)
+        if (status == DSI_OK)
         {
             status = DSI_Read(hdsi, (uint8_t *)Array, Size);
         }

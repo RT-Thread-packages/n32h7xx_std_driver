@@ -332,7 +332,7 @@ void ETH_StructInit(ETH_Module* ETHx, ETH_InitType* ETH_InitParam)
     /* Default Disable PBL multiplication by eigh mode */
     ETH_InitParam->PBLx8mode                 = (uint32_t)DISABLE;
     /* Default Set the Word number to skip between two unchained descriptors: 0-bit */
-    ETH_InitParam->DescriptorSkipLen         = ETH_DESC_SKIP_LEN_0BIT;
+    ETH_InitParam->DescriptorSkipLen         = ETH_DESC_SKIP_LEN_64BIT;
     /* Default Disable Operate on Second Packet mode */
     ETH_InitParam->OperateSecondPacket       = (uint32_t)DISABLE;
     /* Default Disable TCP Segmentation function */
@@ -442,7 +442,7 @@ void ETH_DMARxDescListInit(ETH_Module* ETHx, ETH_InfoType* pInfo)
     WRITE_REG(ETHx->DMACH0RXDLA, (uint32_t)pInfo->pRxDesc);
 
     /* Set Rx Descriptor Tail pointer */
-    WRITE_REG(ETHx->DMACH0RXDTP, (uint32_t)(pInfo->pRxDesc + ((ETH_RX_DESC_NUMBER - 1U) * sizeof(ETH_DMADescType))));
+    WRITE_REG(ETHx->DMACH0RXDTP, (uint32_t)(pInfo->pRxDesc + (ETH_RX_DESC_NUMBER - 1U)));
 }
 
 /**
