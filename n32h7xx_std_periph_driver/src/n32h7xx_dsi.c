@@ -913,7 +913,7 @@ DSI_StateTypeDef DSI_APBPKT_ShortWrite(DSI_HandleTypeDef *hdsi, uint32_t Channel
     PacketCtrl.CmdType          = Speed;
     PacketCtrl.Header.ChannelID = ChannelID;
     PacketCtrl.Header.DataType  = Mode;
-    PacketCtrl.Header.WordCount = (Param2 << 8U | (Param1 & 0xFFU));
+    PacketCtrl.Header.WordCount = ((Param2 & 0xFFU) << 8U) | (Param1 & 0xFFU);
 
     return DSI_ShortWrite(hdsi, &PacketCtrl);
 }

@@ -250,7 +250,6 @@ static const uint32_t REG_MASK_TAB_UPDATETRIG[] =
     0x01FF0000U,  /* 3: TIMER C */
     0x01FF0000U,  /* 4: TIMER D */
     0x01FF0000U,  /* 5: TIMER E */
-    0x01FF0000U,  /* 5: TIMER E */
     0x01FF0000U   /* 6: TIMER F */
 };
 

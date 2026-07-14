@@ -202,8 +202,8 @@ void MMU_EnableRTAD(uint32_t RTADx, FunctionalState Cmd)
 
 /**
 *\*\name    MMU_GetRTADRegionKey.
-*\*\fun     RTAD Partial Area KEY Configuration.
-*\*\param   region_key :
+*\*\fun     Get the RTAD partial area key register value.
+*\*\param   region : one of
 *\*\           - MMU_RTAD_REGION1_PART0_KEY                      MMU Region1 Part0 Key Register Offset Address
 *\*\           - MMU_RTAD_REGION1_PART1_KEY                      MMU Region1 Part1 Key Register Offset Address
 *\*\           - MMU_RTAD_REGION1_PART2_KEY                      MMU Region1 Part2 Key Register Offset Address
@@ -220,8 +220,7 @@ void MMU_EnableRTAD(uint32_t RTADx, FunctionalState Cmd)
 *\*\           - MMU_RTAD_REGION4_PART1_KEY                      MMU Region4 Part1 Key Register Offset Address
 *\*\           - MMU_RTAD_REGION4_PART2_KEY                      MMU Region4 Part2 Key Register Offset Address
 *\*\           - MMU_RTAD_REGION4_PART3_KEY                      MMU Region4 Part3 Key Register Offset Address
-*\*\param   key :  The Key to Config
-*\*\return  none
+*\*\return  uint32_t : the key register value
 **/
 uint32_t MMU_GetRTADRegionKey(uint32_t region)
 {
@@ -566,7 +565,7 @@ uint32_t MMU_GetReadErrorMasterID(uint32_t readerrordebug)
 {
     uint32_t MID_temp;
     MID_temp = *(uint32_t *)(MMU_BASE + readerrordebug);
-    return ((uint8_t)(MID_temp >> MMU_WERRDEBUG_MID_OFFSET));
+    return ((uint8_t)(MID_temp >> MMU_RERRDEBUG_MID_OFFSET));
 }
 
 /**

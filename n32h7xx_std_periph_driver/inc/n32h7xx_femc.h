@@ -150,10 +150,10 @@ typedef struct
 /** Last Ecc Operation Status **/
 typedef enum
 {
-    COMPLETE        = 0U,
-    UNALIGNADDR     = 1U,
-    DATASTOP        = 2U,
-    DATASTOP_NOREAD = 3U,
+    FEMC_ECC_LAST_COMPLETE        = 0U,
+    FEMC_ECC_LAST_UNALIGNADDR     = 1U,
+    FEMC_ECC_LAST_DATASTOP        = 2U,
+    FEMC_ECC_LAST_DATASTOP_NOREAD = 3U,
 } ECC_Last_Stats;
 
 
@@ -336,7 +336,7 @@ typedef enum
 
 /** FEMC_Exported_Functions **/
 void FEMC_Init(FEMC_InitType *FEMC_InitStruct);
-void FEMC_InitStruct(FEMC_InitType* FEMC_InitStruct);
+void FEMC_InitStruct(FEMC_InitType* FEMC_InitPram);
 void FEMC_SetCommand(uint32_t Chip, uint32_t Cmd, uint32_t CrePolarity, uint32_t Address);
 ErrorStatus FEMC_CheckChipStatus(uint32_t Chip, FEMC_ChipInitType *ChipCfg);
 ErrorStatus FEMC_CheckTimingStatus(uint32_t Chip, FEMC_TimingInitType *TimingCfg);

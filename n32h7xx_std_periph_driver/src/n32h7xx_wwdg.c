@@ -169,11 +169,9 @@ void WWDG_SetCnt(WWDG_Module* WWDGx, uint16_t Counter)
 *\*\          - 0x40 ~ 0x3FFF
 *\*\return  none
 **/
-//uint32_t data;
 void WWDG_Enable(WWDG_Module* WWDGx, uint16_t Counter)
 {
-    //data=CTRL_ACTB_SET | Counter;
-    WWDGx->CTRL = CTRL_ACTB_SET | Counter;
+    WWDGx->CTRL = CTRL_ACTB_SET | ((uint32_t)Counter & (uint32_t)BIT_MASK);
 }
 
 /**

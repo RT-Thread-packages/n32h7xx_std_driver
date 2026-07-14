@@ -264,7 +264,7 @@ void SD_DecodeCsd(sd_card_t* card)
     }
     card->sd_card_information.csd.eraseSectorSize       = (uint8_t)((card->command.response[1U] & 0x3F80U) >> 7U);
     card->sd_card_information.csd.writeProtectGroupSize = (uint8_t)(card->command.response[1U] & 0x7FU);
-    if ((uint8_t)(card->command.response[0U] & 0x80000000U) != 0U)
+    if ((card->command.response[0U] & 0x80000000U) != 0U)
     {
         card->sd_card_information.csd.flags |= (uint16_t)SD_CsdWriteProtectGroupEnabledFlag;
     }
@@ -456,6 +456,7 @@ Status_card SD_SendSCR(sd_card_t* card)
         else if(card->sd_card_information.scr.sdSpecification == 2U)
         {
             card->sd_card_information.version = SD_SpecificationVersion2_0;
+            
             if((card->sd_card_information.flags & SD_ScrSdSpecification3) != 0)
             {
                 card->sd_card_information.version = SD_SpecificationVersion3_0;
@@ -1266,7 +1267,7 @@ void MMC_DecodeCid(mmc_card_t* mmccard)
     mmccard->mmc_card_information.cid.productName[4U] = (uint8_t)((mmccard->command.response[2U] & 0xFFU));
     mmccard->mmc_card_information.cid.productName[5U] = (uint8_t)((mmccard->command.response[1U] & 0xFF000000U) >> 24U);
 
-    mmccard->mmc_card_information.cid.productVersion = (uint8_t)((mmccard->command.response[1U] & 0xFF000000U) >> 16U);
+    mmccard->mmc_card_information.cid.productVersion = (uint8_t)((mmccard->command.response[1U] & 0x00FF0000U) >> 16U);
 
     mmccard->mmc_card_information.cid.productSerialNumber = (uint32_t)((mmccard->command.response[1U] & 0xFFFFU) << 16U);
     mmccard->mmc_card_information.cid.productSerialNumber |= (uint32_t)((mmccard->command.response[0U] & 0xFFFF0000U) >> 16U);

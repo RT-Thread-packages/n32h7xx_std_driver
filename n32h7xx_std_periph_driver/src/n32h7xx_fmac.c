@@ -519,7 +519,7 @@ void FMAC_ConfigY(uint8_t Baseaddr, uint8_t Bufsize, uint32_t Threshold)
 **/
 void FMAC_WriteData(int16_t data)
 {
-    FMAC->WDAT = (uint32_t)data;
+    FMAC->WDAT = (uint32_t)data & FMAC_WDAT_WDAT;
 }
 
 /**

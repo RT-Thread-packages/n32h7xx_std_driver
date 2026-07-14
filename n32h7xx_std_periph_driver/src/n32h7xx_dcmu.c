@@ -119,7 +119,7 @@ void DCMU_TransmitMsg(uint8_t TxIdx, uint32_t TxMsgData, dcmu_wait_mode_t Mode)
     }
 
     /* NonBlocking and Blocking common code */
-    DCMU->TXMSG[TxIdx] = TxMsgData;
+    DCMU->TXMSG[(TxIdx & 0x03U)] = TxMsgData;
 }
 
 /**

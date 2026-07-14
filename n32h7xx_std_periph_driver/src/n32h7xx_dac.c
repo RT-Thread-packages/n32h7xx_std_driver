@@ -1269,6 +1269,8 @@ void DAC_ClearITPendingBit(DACX DACx, uint32_t DAC_IT)
 **/
 void DAC_ConfigClkPrescaler(DAC_Module* DACx, uint8_t Prescaler)
 {
+    uint32_t mask = (DACx == DAC12) ? DAC12_GCTRL_PCS_MASK : DAC3456_GCTRL_PCS_MASK;
+
     if (DACx == DAC12)
     {
         DACx->GCTRL &= (~DAC12_GCTRL_PCS_MASK);
@@ -1278,7 +1280,7 @@ void DAC_ConfigClkPrescaler(DAC_Module* DACx, uint8_t Prescaler)
         DACx->GCTRL &= (~DAC3456_GCTRL_PCS_MASK);
     }
 
-    DACx->GCTRL |= (((uint32_t)Prescaler - 1u) << 16u);
+    DACx->GCTRL |= ((((uint32_t)Prescaler - 1u) << 16u) & mask);
 }
 
 
