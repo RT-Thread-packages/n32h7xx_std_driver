@@ -96,26 +96,26 @@ void FEMC_Init(FEMC_InitType *FEMC_InitStruct)
 *\*\param   FEMC_InitStruct pointer to a FEMC_InitType structure which will be initialized.
 *\*\return  none
 **/
-void FEMC_InitStruct(FEMC_InitType* FEMC_InitStruct)
+void FEMC_InitStruct(FEMC_InitType* FEMC_InitPram)
 {
     /* Reset NOR/SRAM Init structure parameters values */
-    FEMC_InitStruct->TimingCfg.Trc      = 2;
-    FEMC_InitStruct->TimingCfg.Twc      = 2;
-    FEMC_InitStruct->TimingCfg.Tcere    = 1;
-    FEMC_InitStruct->TimingCfg.Twp      = 1;
-    FEMC_InitStruct->TimingCfg.Tpcclr   = 0;
-    FEMC_InitStruct->TimingCfg.Ttrar    = 0;
-    FEMC_InitStruct->TimingCfg.Twerr    = 0;
+    FEMC_InitPram->TimingCfg.Trc      = 2;
+    FEMC_InitPram->TimingCfg.Twc      = 2;
+    FEMC_InitPram->TimingCfg.Tcere    = 1;
+    FEMC_InitPram->TimingCfg.Twp      = 1;
+    FEMC_InitPram->TimingCfg.Tpcclr   = 0;
+    FEMC_InitPram->TimingCfg.Ttrar    = 0;
+    FEMC_InitPram->TimingCfg.Twerr    = 0;
 
-    FEMC_InitStruct->ChipCfg.ReadSyncMode  = FEMC_MEM_READ_ASYNC;
-    FEMC_InitStruct->ChipCfg.ReadBurstLen  = FEMC_MEM_READ_BURST_1;
-    FEMC_InitStruct->ChipCfg.WriteSyncMode = FEMC_MEM_WRITE_ASYNC;
-    FEMC_InitStruct->ChipCfg.WriteBurstLen = FEMC_MEM_WRITE_BURST_1;
-    FEMC_InitStruct->ChipCfg.MemWidth      = FEMC_MEMORY_WIDTH_16BIT;
-    FEMC_InitStruct->ChipCfg.BAA           = FEMC_BAA_PORT_DISABLE;
-    FEMC_InitStruct->ChipCfg.ADV           = FEMC_ADV_PORT_DISABLE;
-    FEMC_InitStruct->ChipCfg.BLSS          = FEMC_BLS_SYNC_CS;
-    FEMC_InitStruct->ChipCfg.BurstAlign    = FEMC_BURST_SPLIT_ON_256;
+    FEMC_InitPram->ChipCfg.ReadSyncMode  = FEMC_MEM_READ_ASYNC;
+    FEMC_InitPram->ChipCfg.ReadBurstLen  = FEMC_MEM_READ_BURST_1;
+    FEMC_InitPram->ChipCfg.WriteSyncMode = FEMC_MEM_WRITE_ASYNC;
+    FEMC_InitPram->ChipCfg.WriteBurstLen = FEMC_MEM_WRITE_BURST_1;
+    FEMC_InitPram->ChipCfg.MemWidth      = FEMC_MEMORY_WIDTH_16BIT;
+    FEMC_InitPram->ChipCfg.BAA           = FEMC_BAA_PORT_DISABLE;
+    FEMC_InitPram->ChipCfg.ADV           = FEMC_ADV_PORT_DISABLE;
+    FEMC_InitPram->ChipCfg.BLSS          = FEMC_BLS_SYNC_CS;
+    FEMC_InitPram->ChipCfg.BurstAlign    = FEMC_BURST_SPLIT_ON_256;
 }
 
 /**

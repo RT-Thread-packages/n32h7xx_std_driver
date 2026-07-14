@@ -783,14 +783,9 @@ typedef enum
 
 
 /* Private function */
-static SDMMC_STS SDMMC_TransferConfig(SDHOST_Module* SDHOSTx, uint32_t transferFlags, uint32_t blockSize, uint32_t blockCount, SDHOST_TMODE_struct *TMODE_struct);
-static SDMMC_STS SDMMC_ReceiveCommandResponse(SDHOST_Module* SDHOSTx, SDMMC_CMD *command);
-static uint32_t SDMMC_ReadDataPort(SDHOST_Module* SDHOSTx, SDMMC_DATA *data, uint32_t transferredWords);
 ErrorStatus SDMMC_ReadByDataPortBlocking(SDHOST_Module* SDHOSTx, SDMMC_DATA *data);
-static uint32_t SDMMC_WriteDataPort(SDHOST_Module* SDHOSTx, SDMMC_DATA *data, uint32_t transferredWords);
 ErrorStatus SDMMC_WriteByDataPortBlocking(SDHOST_Module* SDHOSTx, SDMMC_DATA *data);
 SDMMC_STS SDMMC_WaitCommandDone(SDHOST_Module* SDHOSTx, SDMMC_CMD *command, FunctionalState pollingCmdDone);
-static SDMMC_STS SDMMC_TransferDataBlocking(SDHOST_Module* SDHOSTx, SDMMC_DATA *data, FunctionalState DMACmd);
 void SDMMC_WriteData(SDHOST_Module* SDHOSTx, uint32_t data);
 uint32_t SDMMC_ReadData(SDHOST_Module* SDHOSTx);
 
@@ -807,10 +802,6 @@ void SDMMC_EnableSDCLK(SDHOST_Module* SDHOSTx, FunctionalState Cmd);
 SDMMC_STS SDMMC_WaitSDCLKStable(SDHOST_Module* SDHOSTx);
 SDMMC_STS SDMMC_SetSdClock(SDHOST_Module* SDHOSTx, FunctionalState PresetCmd, uint32_t SDClock_KHz);
 void SDMMC_ConfigemmcBoot(SDHOST_Module* SDHOSTx, const SDHOST_boot_config *config);
-static SDMMC_STS SDMMC_ConfigInternalDma(SDHOST_Module* SDHOSTx, SDHOST_ADMAconfig *dmaConfig, const uint32_t *dataAddr,
-        FunctionalState enAutoCmd23, SDHOST_TMODE_struct *TMODE_struct);
-static SDMMC_STS SDMMC_SetAdmaTableConfig(SDHOST_Module* SDHOSTx, SDHOST_ADMAconfig *dmaConfig,
-        SDMMC_DATA *dataConfig, SDHOST_TMODE_struct *TMODE_struct);
 SDMMC_STS SDMMC_TransferBlocking(SDHOST_Module* SDHOSTx, SDHOST_ADMAconfig *dmaConfig, SDMMC_Transfer *transfer, SDHOST_TMODE_struct *TMODE_struct);
 void SDMMC_EnableManualTuningOut(SDMMC_Module* SDMMCx, uint32_t delay, FunctionalState cmd);
 void SDMMC_EnableManualTuningIN(SDMMC_Module* SDMMCx, uint32_t delay, FunctionalState cmd);

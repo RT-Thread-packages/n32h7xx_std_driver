@@ -55,6 +55,16 @@
 #include "n32h7xx_sdmmc.h"
 #include "n32h7xx_rcc.h"
 
+static SDMMC_STS SDMMC_TransferConfig(SDHOST_Module* SDHOSTx, uint32_t transferFlags, uint32_t blockSize, uint32_t blockCount, SDHOST_TMODE_struct *TMODE_struct);
+static SDMMC_STS SDMMC_ReceiveCommandResponse(SDHOST_Module* SDHOSTx, SDMMC_CMD *command);
+static uint32_t SDMMC_ReadDataPort(SDHOST_Module* SDHOSTx, SDMMC_DATA *data, uint32_t transferredWords);
+static uint32_t SDMMC_WriteDataPort(SDHOST_Module* SDHOSTx, SDMMC_DATA *data, uint32_t transferredWords);
+static SDMMC_STS SDMMC_TransferDataBlocking(SDHOST_Module* SDHOSTx, SDMMC_DATA *data, FunctionalState DMACmd);
+static SDMMC_STS SDMMC_ConfigInternalDma(SDHOST_Module* SDHOSTx, SDHOST_ADMAconfig *dmaConfig, const uint32_t *dataAddr,
+        FunctionalState enAutoCmd23, SDHOST_TMODE_struct *TMODE_struct);
+static SDMMC_STS SDMMC_SetAdmaTableConfig(SDHOST_Module* SDHOSTx, SDHOST_ADMAconfig *dmaConfig,
+        SDMMC_DATA *dataConfig, SDHOST_TMODE_struct *TMODE_struct);
+
 /**
  *\*\name   SDMMC_DeInit.
  *\*\fun    Reset the SDMMCx peripheral registers to their default reset values.

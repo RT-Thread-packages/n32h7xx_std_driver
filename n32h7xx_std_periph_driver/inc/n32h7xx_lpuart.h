@@ -121,8 +121,8 @@ typedef struct
 
 
 /** LPUART is configured as RX or TX **/
-#define LPUART_MODE_RX       ((uint32_t)LPUART_CTRL_RXEN) /* Transmitter enable */
-#define LPUART_MODE_TX       ((uint32_t)LPUART_CTRL_TXEN) /* Receiver enable */
+#define LPUART_MODE_RX       ((uint32_t)LPUART_CTRL_RXEN) /* Receiver enable */
+#define LPUART_MODE_TX       ((uint32_t)LPUART_CTRL_TXEN) /* Transmitter enable */
 #define IS_LPUART_MODE(MODE) (((MODE) == LPUART_MODE_RX) || ((MODE) == LPUART_MODE_TX))
 
 

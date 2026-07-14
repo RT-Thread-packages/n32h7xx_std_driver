@@ -21,9 +21,6 @@ os.path.join(src_path, 'n32h7xx_exti.c'),
 
 if GetDepend(['RT_USING_SERIAL']) or GetDepend(['RT_USING_NANO', 'RT_USING_CONSOLE']):
     src += [os.path.join(src_path, 'n32h7xx_usart.c')]
-    
-if GetDepend(['RT_USING_HWTIMER']) or GetDepend(['RT_USING_PWM']) or GetDepend(['RT_USING_PULSE_ENCODER']):
-    src += [os.path.join(src_path, 'n32h7xx_tim.c')]
 
 if GetDepend(['RT_USING_SPI']):
     src += [os.path.join(src_path, 'n32h7xx_spi.c')]
@@ -45,9 +42,6 @@ if GetDepend(['RT_USING_DAC']):
     
 if GetDepend(['RT_USING_CAN']):
     src += [os.path.join(src_path, 'n32h7xx_fdcan.c')]
-
-if GetDepend(['RT_USING_PM']):
-    src += [os.path.join(src_path, 'n32h7xx_pwr.c')]
     
 if GetDepend(['BSP_USING_LPTIM']):
     src += [os.path.join(src_path, 'n32h7xx_lptim.c')]
@@ -77,7 +71,7 @@ if GetDepend(['RT_USING_MTD_NAND']) or GetDepend(['RT_USING_MTD_NOR']) or GetDep
 if GetDepend(['RT_USING_AUDIO']):
     src += [os.path.join(src_path, 'n32h7xx_i2s.c')]
 
-if GetDepend(['BSP_USING_CLOCK_TIMER']) or GetDepend(['BSP_USING_PWM']) :
+if GetDepend(['BSP_USING_CLOCK_TIMER']) or GetDepend(['RT_USING_PWM']) or GetDepend(['RT_USING_PULSE_ENCODER']):
     src += [os.path.join(src_path, 'n32h7xx_tim.c')]
 
 CPPDEFINES = ['USE_STDPERIPH_DRIVER']
