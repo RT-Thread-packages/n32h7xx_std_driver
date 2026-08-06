@@ -421,6 +421,8 @@ typedef struct
 #define XSPI_NO_SELECT_SLAVE                     ((uint32_t)0x00000000U)
 #define XSPI_SELECT_SLAVE_1                      ((uint32_t)XSPI_V2_SLAVE_EN_SEN_0)
 #define XSPI_SELECT_SLAVE_2                      ((uint32_t)XSPI_V2_SLAVE_EN_SEN_1)
+#define XSPI_SELECT_SLAVE_3                      ((uint32_t)XSPI_V2_SLAVE_EN_SEN_2)
+#define XSPI_SELECT_SLAVE_4                      ((uint32_t)XSPI_V2_SLAVE_EN_SEN_3)
 
 /** Defined XIP Slave Number */
 #define XSPI_NO_XUP_SELECT_SLAVE                 ((uint32_t)0x00000000U)

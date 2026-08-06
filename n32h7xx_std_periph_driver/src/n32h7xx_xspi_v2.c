@@ -742,7 +742,7 @@ void XSPI_InitXIP(XSPI_Module *xSPIx, XSPI_XIPInitType* XSPI_XIPInitStruct)
      * Configure: Transfer Mode
      * Configure: Master mode
      */
-    tmpregister |= ((uint32_t)(XSPI_XIPInitStruct->DataFrameSize | XSPI_XIPInitStruct->SCPH |
+    tmpregister |= ((uint32_t)(XSPI_XIPInitStruct->DataFrameSize | XSPI_XIPInitStruct->SCPH | XSPI_XIPInitStruct->XipFrameFormat |
                                XSPI_XIPInitStruct->SCPOL | XSPI_XIPInitStruct->TransferMode | XSPI_V2_CTRL0_MST));
 
     /* Write to XSPI CTRL0 */
