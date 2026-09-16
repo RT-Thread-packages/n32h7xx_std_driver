@@ -791,23 +791,23 @@ FlagStatus FEMC_GetECCBusyFlag(void)
 **/
 ECC_Last_Stats FEMC_GetECCLastSTS(void)
 {
-    ECC_Last_Stats status = COMPLETE;
+    ECC_Last_Stats status = FEMC_ECC_LAST_COMPLETE;
 
     if ((FEMC->FEMC_ECCSTS & FEMC_ECCSTS_LASTS) == FEMC_ECC_LAST_STATUS_COMPLETE)
     {
-        status = COMPLETE;
+        status = FEMC_ECC_LAST_COMPLETE;
     }
     else if ((FEMC->FEMC_ECCSTS & FEMC_ECCSTS_LASTS) == FEMC_ECC_LAST_STATUS_UNALIGNADDR)
     {
-        status = UNALIGNADDR;
+        status = FEMC_ECC_LAST_UNALIGNADDR;
     }
     else if ((FEMC->FEMC_ECCSTS & FEMC_ECCSTS_LASTS) == FEMC_ECC_LAST_STATUS_DATASTOP)
     {
-        status = DATASTOP;
+        status = FEMC_ECC_LAST_DATASTOP;
     }
     else if ((FEMC->FEMC_ECCSTS & FEMC_ECCSTS_LASTS) == FEMC_ECC_LAST_STATUS_DATASTOP_NOREAD)
     {
-        status = DATASTOP_NOREAD;
+        status = FEMC_ECC_LAST_DATASTOP_NOREAD;
     }
 
     return status;
